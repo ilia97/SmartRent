@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRent.CustomerSite", "SmartRent.CustomerSite\SmartRent.CustomerSite.csproj", "{7F04403F-FA40-4419-AB84-60AB8B15143A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRent.ManagerSite", "SmartRent.ManagerSite\SmartRent.ManagerSite.csproj", "{ABA73460-1F9F-42AA-91E6-736E1952F582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRent.AdminSite", "SmartRent.AdminSite\SmartRent.AdminSite.csproj", "{86CF94D0-E240-4E10-8313-29D988A1BC76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRent.Core", "SmartRent.Core\SmartRent.Core.csproj", "{7B8ADBDF-1F60-4BC3-8490-EE6AEA342226}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRent.DataAccess", "SmartRent.DataAccess\SmartRent.DataAccess.csproj", "{12537C7D-7442-49ED-8596-AC7B3517DF29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRent.API", "SmartRent.API\SmartRent.API.csproj", "{2C86AAA2-DF2B-459E-BC5E-7A6DE11AF622}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F04403F-FA40-4419-AB84-60AB8B15143A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F04403F-FA40-4419-AB84-60AB8B15143A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F04403F-FA40-4419-AB84-60AB8B15143A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F04403F-FA40-4419-AB84-60AB8B15143A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA73460-1F9F-42AA-91E6-736E1952F582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA73460-1F9F-42AA-91E6-736E1952F582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA73460-1F9F-42AA-91E6-736E1952F582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA73460-1F9F-42AA-91E6-736E1952F582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86CF94D0-E240-4E10-8313-29D988A1BC76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CF94D0-E240-4E10-8313-29D988A1BC76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CF94D0-E240-4E10-8313-29D988A1BC76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CF94D0-E240-4E10-8313-29D988A1BC76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B8ADBDF-1F60-4BC3-8490-EE6AEA342226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8ADBDF-1F60-4BC3-8490-EE6AEA342226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8ADBDF-1F60-4BC3-8490-EE6AEA342226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8ADBDF-1F60-4BC3-8490-EE6AEA342226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12537C7D-7442-49ED-8596-AC7B3517DF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12537C7D-7442-49ED-8596-AC7B3517DF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12537C7D-7442-49ED-8596-AC7B3517DF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12537C7D-7442-49ED-8596-AC7B3517DF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C86AAA2-DF2B-459E-BC5E-7A6DE11AF622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C86AAA2-DF2B-459E-BC5E-7A6DE11AF622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C86AAA2-DF2B-459E-BC5E-7A6DE11AF622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C86AAA2-DF2B-459E-BC5E-7A6DE11AF622}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
