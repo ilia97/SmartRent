@@ -107,9 +107,7 @@
     <Compile Include="Services\Interfaces\IShopsService.cs" />
     <Compile Include="Services\ShopsService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\SmartRent.DataAccess\SmartRent.DataAccess.csproj">
       <Project>{12537C7D-7442-49ED-8596-AC7B3517DF29}</Project>
