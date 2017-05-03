@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using SmartRent.Core.Misc;
+using SmartRent.Core.Models;
 using SmartRent.CustomerSite.Models;
 
 namespace SmartRent.CustomerSite.Controllers
@@ -13,24 +15,24 @@ namespace SmartRent.CustomerSite.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private ApplicationSignInManager<Customer> _signInManager;
+        private ApplicationUserManager<Customer> _userManager;
 
         public ManageController()
         {
         }
 
-        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public ManageController(ApplicationUserManager<Customer> userManager, ApplicationSignInManager<Customer> signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
 
-        public ApplicationSignInManager SignInManager
+        public ApplicationSignInManager<Customer> SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager<Customer>>();
             }
             private set 
             { 
@@ -38,11 +40,11 @@ namespace SmartRent.CustomerSite.Controllers
             }
         }
 
-        public ApplicationUserManager UserManager
+        public ApplicationUserManager<Customer> UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager<Customer>>();
             }
             private set
             {

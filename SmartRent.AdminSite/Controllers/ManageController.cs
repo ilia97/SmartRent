@@ -7,30 +7,32 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SmartRent.AdminSite.Models;
+using SmartRent.Core.Misc;
+using SmartRent.Core.Models;
 
 namespace SmartRent.AdminSite.Controllers
 {
     [Authorize]
     public class ManageController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private ApplicationSignInManager<Admin> _signInManager;
+        private ApplicationUserManager<Admin> _userManager;
 
         public ManageController()
         {
         }
 
-        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public ManageController(ApplicationUserManager<Admin> userManager, ApplicationSignInManager<Admin> signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
         }
 
-        public ApplicationSignInManager SignInManager
+        public ApplicationSignInManager<Admin> SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager<Admin>>();
             }
             private set 
             { 
@@ -38,11 +40,11 @@ namespace SmartRent.AdminSite.Controllers
             }
         }
 
-        public ApplicationUserManager UserManager
+        public ApplicationUserManager<Admin> UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager<Admin>>();
             }
             private set
             {

@@ -1,4 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Net;
+using System.Web.Mvc;
+using AutoMapper;
+using Microsoft.AspNet.Identity;
+using SmartRent.AdminSite.Models.Shop;
+using SmartRent.Core.Exceptions;
+using SmartRent.Core.Models;
 using SmartRent.Core.Services.Interfaces;
 
 namespace SmartRent.AdminSite.Controllers
@@ -15,77 +22,96 @@ namespace SmartRent.AdminSite.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var shopsList = this._shopsService.GetShops();
+
+            var model = Mapper.Map<List<Shop>, List<ShopListItemViewModel>>(shopsList);
+
+            return View(model);
         }
         
         public ActionResult Details(int id)
         {
-            return View();
-        }
+            var shop  = this._shopsService.GetShop(id);
 
-        // GET: Shops/Create
+            var model = Mapper.Map<Shop, ShopDetailsViewModel>(shop);
+
+            return View(model);
+        }
+        
         public ActionResult Create()
         {
             return View();
         }
-
-        // POST: Shops/Create
+        
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CreateShopViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             try
             {
-                // TODO: Add insert logic here
+                var shop = Mapper.Map<CreateShopViewModel, Shop>(model);
 
-                return RedirectToAction("Index");
+                var ceratedShopId = _shopsService.AddShop(shop, this.User.Identity.GetUserId());
+
+                return RedirectToAction("Edit", ceratedShopId);
             }
-            catch
+            catch (AdminNotFoundException)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
         }
-
-        // GET: Shops/Edit/5
+        
         public ActionResult Edit(int id)
         {
-            return View();
-        }
+            var shop = this._shopsService.GetShop(id);
 
-        // POST: Shops/Edit/5
+            var model = Mapper.Map<Shop, EditShopViewModel>(shop);
+
+            return View(model);
+        }
+        
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(EditShopViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             try
             {
-                // TODO: Add update logic here
+                var shop = Mapper.Map<EditShopViewModel, Shop>(model);
+
+                _shopsService.EditShop(shop, this.User.Identity.GetUserId());
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (AdminNotFoundException)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
         }
-
-        // GET: Shops/Delete/5
+        
+        [HttpPost]
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Shops/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add delete logic here
+                _shopsService.RemoveShop(id, this.User.Identity.GetUserId());
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (AdminNotFoundException)
             {
-                return View();
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            catch (AccessDeniedException)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
         }
     }

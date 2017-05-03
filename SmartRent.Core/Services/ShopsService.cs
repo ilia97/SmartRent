@@ -22,7 +22,7 @@ namespace SmartRent.Core.Services
             this.adminsRepository = adminsRepository;
         }
 
-        public void AddShop(Shop shop, string adminId)
+        public int AddShop(Shop shop, string adminId)
         {
             var admin = this.adminsRepository.GetById(adminId);
 
@@ -35,6 +35,8 @@ namespace SmartRent.Core.Services
 
             this.shopsRepository.Insert(shopEntity);
             this.shopsRepository.Save();
+
+            return shopEntity.Id;
         }
 
         public void EditShop(Shop shop, string adminId)

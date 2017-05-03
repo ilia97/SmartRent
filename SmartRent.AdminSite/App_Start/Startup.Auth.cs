@@ -6,6 +6,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using SmartRent.AdminSite.Models;
+using SmartRent.Core.Misc;
+using SmartRent.Core.Models;
+using SmartRent.DataAccess;
 
 namespace SmartRent.AdminSite
 {
@@ -15,9 +18,9 @@ namespace SmartRent.AdminSite
         public void ConfigureAuth(IAppBuilder app)
         {
             // Настройка контекста базы данных, диспетчера пользователей и диспетчера входа для использования одного экземпляра на запрос
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            app.CreatePerOwinContext(DatabaseContext.Create);
+            app.CreatePerOwinContext<ApplicationUserManager<Admin>>(ApplicationUserManager<Admin>.Create);
+            app.CreatePerOwinContext<ApplicationSignInManager<Admin>>(ApplicationSignInManager<Admin>.Create);
 
             // Включение использования файла cookie, в котором приложение может хранить информацию для пользователя, выполнившего вход,
             // и использование файла cookie для временного хранения информации о входах пользователя с помощью стороннего поставщика входа
@@ -30,9 +33,9 @@ namespace SmartRent.AdminSite
                 {
                     // Позволяет приложению проверять метку безопасности при входе пользователя.
                     // Эта функция безопасности используется, когда вы меняете пароль или добавляете внешнее имя входа в свою учетную запись.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager<Admin>, Admin>(
                         validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+                        regenerateIdentity: async (manager, user) => await manager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie))
                 }
             });            
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);

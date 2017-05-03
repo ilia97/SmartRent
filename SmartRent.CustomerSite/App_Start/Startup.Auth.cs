@@ -5,7 +5,10 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
+using SmartRent.Core.Misc;
+using SmartRent.Core.Models;
 using SmartRent.CustomerSite.Models;
+using SmartRent.DataAccess;
 
 namespace SmartRent.CustomerSite
 {
@@ -15,9 +18,9 @@ namespace SmartRent.CustomerSite
         public void ConfigureAuth(IAppBuilder app)
         {
             // Настройка контекста базы данных, диспетчера пользователей и диспетчера входа для использования одного экземпляра на запрос
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            app.CreatePerOwinContext(DatabaseContext.Create);
+            app.CreatePerOwinContext<ApplicationUserManager<Customer>>(ApplicationUserManager<Customer>.Create);
+            app.CreatePerOwinContext<ApplicationSignInManager<Customer>>(ApplicationSignInManager<Customer>.Create);
 
             // Включение использования файла cookie, в котором приложение может хранить информацию для пользователя, выполнившего вход,
             // и использование файла cookie для временного хранения информации о входах пользователя с помощью стороннего поставщика входа
@@ -30,7 +33,7 @@ namespace SmartRent.CustomerSite
                 {
                     // Позволяет приложению проверять метку безопасности при входе пользователя.
                     // Эта функция безопасности используется, когда вы меняете пароль или добавляете внешнее имя входа в свою учетную запись.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager<Customer>, Customer>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: async (manager, user) => await manager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie))
                 }
