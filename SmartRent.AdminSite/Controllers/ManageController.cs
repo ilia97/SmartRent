@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SmartRent.AdminSite.Models;
+using SmartRent.Core.Misc;
+using SmartRent.Core.Models;
 
 namespace SmartRent.AdminSite.Controllers
 {

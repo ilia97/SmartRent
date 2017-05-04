@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using SmartRent.Core.Misc;
+using SmartRent.Core.Models;
 using SmartRent.ManagerSite.Models;
 
 namespace SmartRent.ManagerSite.Controllers
@@ -26,7 +28,7 @@ namespace SmartRent.ManagerSite.Controllers
             SignInManager = signInManager;
         }
 
-        public ApplicationSignInManager SignInManager
+        public ApplicationSignInManager  SignInManager
         {
             get
             {
@@ -38,7 +40,7 @@ namespace SmartRent.ManagerSite.Controllers
             }
         }
 
-        public ApplicationUserManager UserManager
+        public ApplicationUserManager  UserManager
         {
             get
             {

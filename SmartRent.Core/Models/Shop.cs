@@ -8,19 +8,15 @@ namespace SmartRent.Core.Models
 
         public string Name { get; set; }
 
-        /// <summary>
-        /// Долгота
-        /// </summary>
-        public int Longtitude { get; set; }
+        public string Description { get; set; }
+        
+        public double Longtitude { get; set; }
+        
+        public double Lattitude { get; set; }
 
-        /// <summary>
-        /// Широта
-        /// </summary>
-        public int Lattitude { get; set; }
+        public User Admin { get; set; }
 
-        public Admin Admin { get; set; }
-
-        public List<Manager> Managers { get; set; }
+        public List<User> Managers { get; set; }
 
         public List<Item> Items { get; set; }
     }

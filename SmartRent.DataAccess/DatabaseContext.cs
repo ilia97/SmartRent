@@ -6,18 +6,19 @@ namespace SmartRent.DataAccess
 {
     public class DatabaseContext : IdentityDbContext
     {
+        static DatabaseContext()
+        {
+            Database.SetInitializer(new DatabaseContextInitializer());
+        }
+
         public DatabaseContext()
             : base("DefaultConnection")
         {
         }
 
-        public DbSet<AdminEntity> Admins { get; set; }
-
-        public DbSet<CustomerEntity> Customers { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
 
         public DbSet<ItemEntity> Items { get; set; }
-
-        public DbSet<ManagerEntity> Managers { get; set; }
 
         public DbSet<RentEntity> Rents { get; set; }
 

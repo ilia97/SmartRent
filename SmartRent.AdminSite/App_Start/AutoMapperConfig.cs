@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using SmartRent.AdminSite.Models;
 using SmartRent.Core.Misc;
+using SmartRent.DataAccess.Models;
 
 namespace SmartRent.AdminSite
 {

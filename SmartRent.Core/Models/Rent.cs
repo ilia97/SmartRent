@@ -16,6 +16,6 @@ namespace SmartRent.Core.Models
 
         public Item Item { get; set; }
 
-        public Customer Customer { get; set; }
+        public User Customer { get; set; }
     }
 }

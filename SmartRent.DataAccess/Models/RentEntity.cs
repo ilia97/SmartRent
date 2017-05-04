@@ -25,6 +25,6 @@ namespace SmartRent.DataAccess.Models
         [ForeignKey("Customer")]
         public string CustomerId { get; set; }
 
-        public CustomerEntity Customer { get; set; }
+        public UserEntity Customer { get; set; }
     }
 }

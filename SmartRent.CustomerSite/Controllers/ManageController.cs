@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using SmartRent.Core.Misc;
+using SmartRent.Core.Models;
 using SmartRent.CustomerSite.Models;
 
 namespace SmartRent.CustomerSite.Controllers

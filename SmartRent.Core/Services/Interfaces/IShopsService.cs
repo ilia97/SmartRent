@@ -9,7 +9,7 @@ namespace SmartRent.Core.Services.Interfaces
 
         Shop GetShop(int shopId);
 
-        void AddShop(Shop shop, string adminId);
+        int AddShop(Shop shop, string adminId);
 
         void EditShop(Shop shop, string adminId);
 

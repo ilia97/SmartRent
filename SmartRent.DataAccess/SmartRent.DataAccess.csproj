@@ -58,13 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext.cs" />
-    <Compile Include="Models\AdminEntity.cs" />
-    <Compile Include="Models\CustomerEntity.cs" />
+    <Compile Include="DatabaseContextInitializer.cs" />
     <Compile Include="Models\ItemEntity.cs" />
-    <Compile Include="Models\ManagerEntity.cs" />
     <Compile Include="Models\RentEntity.cs" />
     <Compile Include="Models\ShopEntity.cs" />
-    <Compile Include="Models\UserData.cs" />
+    <Compile Include="Models\UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

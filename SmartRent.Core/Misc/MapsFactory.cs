@@ -8,10 +8,8 @@ namespace SmartRent.Core.Misc
     {
         public static void CreateCoreMaps(this IMapperConfigurationExpression config)
         {
-            config.CreateMap<AdminEntity, Admin>();
-            config.CreateMap<CustomerEntity, Customer>();
+            config.CreateMap<UserEntity, User>();
             config.CreateMap<ItemEntity, Item>();
-            config.CreateMap<ManagerEntity, Manager>();
             config.CreateMap<RentEntity, Rent>();
             config.CreateMap<ShopEntity, Shop>();
         }

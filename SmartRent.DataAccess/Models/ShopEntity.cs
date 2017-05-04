@@ -8,7 +8,7 @@ namespace SmartRent.DataAccess.Models
     {
         public ShopEntity()
         {
-            this.Managers = new List<ManagerEntity>();
+            this.Managers = new List<UserEntity>();
             this.Items = new List<ItemEntity>();
         }
 
@@ -17,22 +17,18 @@ namespace SmartRent.DataAccess.Models
 
         public string Name { get; set; }
 
-        /// <summary>
-        /// Долгота
-        /// </summary>
-        public int Longtitude { get; set; }
-
-        /// <summary>
-        /// Широта
-        /// </summary>
-        public int Lattitude { get; set; }
+        public string Description { get; set; }
+        
+        public double Longtitude { get; set; }
+        
+        public double Lattitude { get; set; }
 
         [ForeignKey("Admin")]
         public string AdminId { get; set; }
 
-        public AdminEntity Admin { get; set; }
+        public UserEntity Admin { get; set; }
 
-        public virtual List<ManagerEntity> Managers { get; set; }
+        public virtual List<UserEntity> Managers { get; set; }
 
         public virtual List<ItemEntity> Items { get; set; }
     }

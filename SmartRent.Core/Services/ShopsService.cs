@@ -12,17 +12,17 @@ namespace SmartRent.Core.Services
     public class ShopsService : IShopsService
     {
         private readonly IRepository<ShopEntity> shopsRepository;
-        private readonly IRepository<AdminEntity> adminsRepository;
+        private readonly IRepository<UserEntity> adminsRepository;
 
         public ShopsService(
             IRepository<ShopEntity> shopsRepository, 
-            IRepository<AdminEntity> adminsRepository)
+            IRepository<UserEntity> adminsRepository)
         {
             this.shopsRepository = shopsRepository;
             this.adminsRepository = adminsRepository;
         }
 
-        public void AddShop(Shop shop, string adminId)
+        public int AddShop(Shop shop, string adminId)
         {
             var admin = this.adminsRepository.GetById(adminId);
 
@@ -35,6 +35,8 @@ namespace SmartRent.Core.Services
 
             this.shopsRepository.Insert(shopEntity);
             this.shopsRepository.Save();
+
+            return shopEntity.Id;
         }
 
         public void EditShop(Shop shop, string adminId)

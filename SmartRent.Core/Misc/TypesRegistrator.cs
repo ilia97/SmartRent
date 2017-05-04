@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using SmartRent.Core.Models;
 using SmartRent.Core.Repository;
 using SmartRent.Core.Repository.Interfaces;
 using SmartRent.Core.Services;
@@ -16,14 +17,9 @@ namespace SmartRent.Core.Misc
                 .AsSelf()
                 .InstancePerRequest();
 
-            builder.RegisterType<Repository<CustomerEntity>>()
-                .As<IRepository<CustomerEntity>>();
-
-            builder.RegisterType<Repository<AdminEntity>>()
-                .As<IRepository<AdminEntity>>();
-
-            builder.RegisterType<Repository<ManagerEntity>>()
-                .As<IRepository<ManagerEntity>>();
+            #region Repositories
+            builder.RegisterType<Repository<UserEntity>>()
+                .As<IRepository<UserEntity>>();
 
             builder.RegisterType<Repository<ShopEntity>>()
                 .As<IRepository<ShopEntity>>();
@@ -33,9 +29,12 @@ namespace SmartRent.Core.Misc
 
             builder.RegisterType<Repository<RentEntity>>()
                 .As<IRepository<RentEntity>>();
+            #endregion Repositories
 
+            #region Services
             builder.RegisterType<ShopsService>()
                 .As<IShopsService>();
+            #endregion Services
         }
     }
 }
