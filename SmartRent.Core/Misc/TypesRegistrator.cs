@@ -34,6 +34,12 @@ namespace SmartRent.Core.Misc
             #region Services
             builder.RegisterType<ShopsService>()
                 .As<IShopsService>();
+
+            builder.RegisterType<UsersService>()
+                .As<IUsersService>();
+
+            builder.RegisterType<ItemsService>()
+                .As<IItemsService>();
             #endregion Services
         }
     }
