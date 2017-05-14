@@ -57,7 +57,7 @@ namespace SmartRent.AdminSite.Controllers
 
                 var ceratedShopId = _shopsService.AddShop(shop, this.User.Identity.GetUserId());
 
-                return RedirectToAction("Edit", ceratedShopId);
+                return RedirectToAction("Edit", new { id = ceratedShopId});
             }
             catch (AdminNotFoundException)
             {

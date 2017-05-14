@@ -8,7 +8,7 @@ namespace SmartRent.DataAccess
     {
         static DatabaseContext()
         {
-            Database.SetInitializer(new DatabaseContextInitializer());
+            //Database.SetInitializer(new DatabaseContextInitializer());
         }
 
         public DatabaseContext()

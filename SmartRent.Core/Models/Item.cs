@@ -6,6 +6,8 @@ namespace SmartRent.Core.Models
     {
         public int Id { get; set; }
 
+        public string ChipId { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }

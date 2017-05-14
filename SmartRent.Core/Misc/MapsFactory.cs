@@ -12,6 +12,11 @@ namespace SmartRent.Core.Misc
             config.CreateMap<ItemEntity, Item>();
             config.CreateMap<RentEntity, Rent>();
             config.CreateMap<ShopEntity, Shop>();
+
+            config.CreateMap<User, UserEntity>();
+            config.CreateMap<Item, ItemEntity>();
+            config.CreateMap<Rent, RentEntity>();
+            config.CreateMap<Shop, ShopEntity>();
         }
     }
 }

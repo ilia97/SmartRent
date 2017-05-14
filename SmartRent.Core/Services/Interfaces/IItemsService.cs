@@ -21,8 +21,8 @@ namespace SmartRent.Core.Services.Interfaces
 
         void RemoveItem(int itemId, string managerId);
 
-        void StartRent(int itemId, string customerId, string managerId);
+        void StartRent(string chipId);
 
-        void FinishRent(int rentId, string managerId);
+        void FinishRent(string chipId);
     }
 }

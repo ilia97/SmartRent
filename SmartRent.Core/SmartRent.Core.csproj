@@ -96,6 +96,7 @@
     <Compile Include="Exceptions\AccessDeniedException.cs" />
     <Compile Include="Exceptions\AdminNotFoundException.cs" />
     <Compile Include="Exceptions\EntityNotFoundException.cs" />
+    <Compile Include="Exceptions\ItemNotFoundException.cs" />
     <Compile Include="Misc\IdentityConfig.cs" />
     <Compile Include="Misc\MapsFactory.cs" />
     <Compile Include="Misc\TypesRegistrator.cs" />
